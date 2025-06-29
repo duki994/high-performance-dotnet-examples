@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcurrentCollections", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LockFreeVsLockBenchmark", "LockFreeVsLockBenchmark\LockFreeVsLockBenchmark.csproj", "{094F3BE5-4050-4059-9030-1DBDC6E227CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelCollections", "ParallelCollections\ParallelCollections.csproj", "{9F06609C-725D-4A1B-A7AA-838AE31351EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{094F3BE5-4050-4059-9030-1DBDC6E227CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{094F3BE5-4050-4059-9030-1DBDC6E227CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{094F3BE5-4050-4059-9030-1DBDC6E227CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F06609C-725D-4A1B-A7AA-838AE31351EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F06609C-725D-4A1B-A7AA-838AE31351EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F06609C-725D-4A1B-A7AA-838AE31351EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F06609C-725D-4A1B-A7AA-838AE31351EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

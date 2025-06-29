@@ -6,13 +6,13 @@ namespace LockFreeVsLockBenchmark;
 
 public class CounterBenchmark
 {
-    private LockBasedCounter _lockBasedCounter;
-    private LockFreeCounter _lockFreeCounter;
     // Define the number of increments and threads for the benchmark
     private const int NumIncrements = 1_000_000;
     private const int NumThreads = 8;
-    
-    
+    private LockBasedCounter _lockBasedCounter;
+    private LockFreeCounter _lockFreeCounter;
+
+
     [GlobalSetup]
     public void Setup()
     {
@@ -25,22 +25,16 @@ public class CounterBenchmark
     {
         Parallel.For(0, NumThreads, _ =>
         {
-            for (var i = 0; i < NumIncrements / NumThreads; i++)
-            {
-                _lockFreeCounter.Increment();
-            }
+            for (var i = 0; i < NumIncrements / NumThreads; i++) _lockFreeCounter.Increment();
         });
     }
-    
+
     [Benchmark]
     public void LockBasedTest()
     {
         Parallel.For(0, NumThreads, _ =>
         {
-            for (var i = 0; i < NumIncrements / NumThreads; i++)
-            {
-                _lockBasedCounter.Increment();
-            }
+            for (var i = 0; i < NumIncrements / NumThreads; i++) _lockBasedCounter.Increment();
         });
     }
 
