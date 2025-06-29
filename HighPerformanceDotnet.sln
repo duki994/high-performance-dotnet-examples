@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LockFreeVsLockBenchmark", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelCollections", "ParallelCollections\ParallelCollections.csproj", "{9F06609C-725D-4A1B-A7AA-838AE31351EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueTaskBenchExamples", "ValueTaskBenchExamples\ValueTaskBenchExamples.csproj", "{5BD7AF08-A4BE-4E02-A622-D67ACA2456F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{9F06609C-725D-4A1B-A7AA-838AE31351EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F06609C-725D-4A1B-A7AA-838AE31351EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F06609C-725D-4A1B-A7AA-838AE31351EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BD7AF08-A4BE-4E02-A622-D67ACA2456F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BD7AF08-A4BE-4E02-A622-D67ACA2456F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BD7AF08-A4BE-4E02-A622-D67ACA2456F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BD7AF08-A4BE-4E02-A622-D67ACA2456F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
