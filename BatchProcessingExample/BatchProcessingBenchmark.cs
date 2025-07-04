@@ -5,10 +5,9 @@ namespace BatchProcessingExample;
 [MemoryDiagnoser]
 public class BatchProcessingBenchmark
 {
-    private List<double> data;
-    private BatchCalculator calculator;
-
     private readonly int batchSize = 1000;
+    private BatchCalculator calculator;
+    private List<double> data;
 
     [GlobalSetup]
     public void Setup()
@@ -18,10 +17,7 @@ public class BatchProcessingBenchmark
 
         var csvFilePath = Path.Combine(Directory.GetCurrentDirectory(), "results.csv");
 
-        if (File.Exists(csvFilePath))
-        {
-            File.Delete(csvFilePath);
-        }
+        if (File.Exists(csvFilePath)) File.Delete(csvFilePath);
     }
 
     [Benchmark(Baseline = true)]

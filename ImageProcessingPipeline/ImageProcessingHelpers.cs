@@ -19,16 +19,14 @@ public static class ImageProcessingHelpers
 
     public static void SaveImage(Image image)
     {
-        string outputDir = Path.Combine(Directory.GetCurrentDirectory(), "output");
+        var outputDir = Path.Combine(Directory.GetCurrentDirectory(), "output");
         Directory.CreateDirectory(outputDir);
-        
+
         // ensure file path has correct extension
-        string filePath = Path.Combine(outputDir, $"{Guid.NewGuid()}.jpg");
-        
-        
+        var filePath = Path.Combine(outputDir, $"{Guid.NewGuid()}.jpg");
+
+
         // save image using new JPEG Encoder
         image.Save(filePath);
     }
-    
-    
 }

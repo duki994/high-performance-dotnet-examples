@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using BenchmarkDotNet;
+﻿using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 
 namespace ValueTaskBenchExamples;
@@ -9,8 +7,8 @@ namespace ValueTaskBenchExamples;
 public class ValueTaskBenchmarks
 {
     private readonly UserProfileService _userProfileService = new();
-    
-    
+
+
     [Benchmark]
     public async Task<UserProfile> UsingTask()
     {

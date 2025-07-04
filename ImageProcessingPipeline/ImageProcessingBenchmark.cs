@@ -1,4 +1,3 @@
-using BenchmarkDotNet;
 using BenchmarkDotNet.Attributes;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -22,10 +21,9 @@ public class ImageProcessingBenchmark
     public void SequentialProcessing()
     {
         foreach (var imagePath in imagePaths)
-        {
             using (var image = Image.Load<Rgba32>(imagePath))
             {
-                var newSize = new SixLabors.ImageSharp.Size(image.Width, image.Height);
+                var newSize = new Size(image.Width, image.Height);
                 using (var resized = ImageProcessingHelpers.ResizeImage(image, newSize))
                 {
                     using (var filtered = ImageProcessingHelpers.ApplyGrayscaleFilter(resized))
@@ -34,7 +32,6 @@ public class ImageProcessingBenchmark
                     }
                 }
             }
-        }
     }
 
     [Benchmark]
@@ -42,5 +39,4 @@ public class ImageProcessingBenchmark
     {
         await pipeline.ProcessImagesAsync(imagePaths);
     }
-    
 }

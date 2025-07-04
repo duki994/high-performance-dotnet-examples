@@ -25,7 +25,7 @@ public class ImagePipeline
         {
             MaxDegreeOfParallelism = 4
         });
-        
+
         // Stage 3: Apply Grayscale filter
         var filterBlock = new TransformBlock<Image, Image>(image =>
         {
@@ -35,38 +35,35 @@ public class ImagePipeline
         {
             MaxDegreeOfParallelism = 4
         });
-        
+
         // Stage 4: Save
         var saveBlock = new ActionBlock<Image>(image =>
         {
-            string outputPathDir = Path.Combine(Directory.GetCurrentDirectory(), "output");
+            var outputPathDir = Path.Combine(Directory.GetCurrentDirectory(), "output");
             Directory.CreateDirectory(outputPathDir);
 
-            string outputPath = Path.Combine(outputPathDir, $"{Guid.NewGuid()}.jpg");
-            
+            var outputPath = Path.Combine(outputPathDir, $"{Guid.NewGuid()}.jpg");
+
             image.Save(outputPath, new JpegEncoder());
-        }, new  ExecutionDataflowBlockOptions
+        }, new ExecutionDataflowBlockOptions
         {
             MaxDegreeOfParallelism = 4
         });
-        
+
         // Link the blocks
 
         var linkOptions = new DataflowLinkOptions
         {
             PropagateCompletion = true
         };
-        
+
         loadBlock.LinkTo(resizeBlock, linkOptions);
         resizeBlock.LinkTo(filterBlock, linkOptions);
         filterBlock.LinkTo(saveBlock, linkOptions);
 
 
-        foreach (var imagePath in imagePaths)
-        {
-            await loadBlock.SendAsync(imagePath);
-        }
-        
+        foreach (var imagePath in imagePaths) await loadBlock.SendAsync(imagePath);
+
         // Signal completion
         loadBlock.Complete();
         await saveBlock.Completion;

@@ -20,10 +20,7 @@ public class PartitionedProcessing
 
         Parallel.ForEach(rangePartitioner, range =>
         {
-            for (var i = range.Item1; i < range.Item2; i++)
-            {
-                _results[i] = Compute(_data[i]);
-            }
+            for (var i = range.Item1; i < range.Item2; i++) _results[i] = Compute(_data[i]);
         });
     }
 

@@ -7,23 +7,17 @@ public class BatchCalculator
 
     public BatchCalculator()
     {
-        if (!File.Exists(csvFilePath))
-        {
-            File.WriteAllText(csvFilePath, "Result\n");
-        }
+        if (!File.Exists(csvFilePath)) File.WriteAllText(csvFilePath, "Result\n");
     }
 
     public void ProcessDataSequentially(List<double> data)
     {
-        foreach (var result in data.Select(ComplexCalculation))
-        {
-            StoreResult(result);
-        }
+        foreach (var result in data.Select(ComplexCalculation)) StoreResult(result);
     }
 
     public void ProcessDataInBatches(List<double> data, int batchSize)
     {
-        for (int i = 0; i < data.Count; i += batchSize)
+        for (var i = 0; i < data.Count; i += batchSize)
         {
             var batch = data.GetRange(i, Math.Min(batchSize, data.Count - i));
             var results = new List<double>(batch.Count);
@@ -39,10 +33,7 @@ public class BatchCalculator
     {
         double result = 0;
 
-        for (int i = 0; i < 1000; i++)
-        {
-            result += Math.Sqrt(input) * Math.Sin(i) / (Math.Cos(i + input) + 1);
-        }
+        for (var i = 0; i < 1000; i++) result += Math.Sqrt(input) * Math.Sin(i) / (Math.Cos(i + input) + 1);
 
         return result;
     }
@@ -59,12 +50,9 @@ public class BatchCalculator
     {
         lock (fileLock)
         {
-            using var writer = new StreamWriter(csvFilePath, append: true);
-            
-            foreach (var item in results)
-            {
-                writer.WriteLine(item);
-            }
+            using var writer = new StreamWriter(csvFilePath, true);
+
+            foreach (var item in results) writer.WriteLine(item);
         }
     }
 }

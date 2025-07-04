@@ -13,15 +13,12 @@ public class UserProfile
 public class UserProfileService
 {
     private readonly Dictionary<int, UserProfile> _cache = new();
-    private readonly Random  _random = new();
+    private readonly Random _random = new();
 
     public async Task<UserProfile> GetUserProfileTaskAsync(int userId)
     {
-        if (_cache.TryGetValue(userId, out UserProfile profile))
-        {
-            return profile;
-        }
-        
+        if (_cache.TryGetValue(userId, out var profile)) return profile;
+
         // Cache miss for 10% of times - simulated
         if (_random.Next(10) == 0)
         {
@@ -32,18 +29,16 @@ public class UserProfileService
         {
             profile = new UserProfile { UserId = userId, Name = "Cached User" };
         }
-        
+
         return profile;
     }
 
     public async ValueTask<UserProfile> GetUserProfileValueTaskAsync(int userId)
     {
-        if (_cache.TryGetValue(userId, out UserProfile profile))
-        {
+        if (_cache.TryGetValue(userId, out var profile))
             // return synchronously - ValueTask allocations should help
             return profile;
-        }
-        
+
         // Cache miss for 10% of times - simulated
         if (_random.Next(10) == 0)
         {
@@ -54,11 +49,11 @@ public class UserProfileService
         {
             profile = new UserProfile { UserId = userId, Name = "Cached User" };
         }
-        
+
         return profile;
     }
 
-    
+
     private Task<UserProfile> FetchFromDatabaseAsync(int userId)
     {
         // Simulate DB call

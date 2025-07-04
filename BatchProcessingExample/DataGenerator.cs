@@ -7,11 +7,8 @@ public static class DataGenerator
         var list = new List<double>();
         var random = new Random();
 
-        for (int i = 0; i < count; i++)
-        {
-            list.Add(random.NextDouble() * 1000);
-        }
-        
+        for (var i = 0; i < count; i++) list.Add(random.NextDouble() * 1000);
+
         return list;
     }
 }
