@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CpuBoundVectorizedOptimizat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPUVectorAdd", "GPUVectorAdd\GPUVectorAdd.csproj", "{1D53CB42-0424-4BEA-A1E7-A452BA688543}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPUGreyscaleProcessing", "GPUGreyscaleProcessing\GPUGreyscaleProcessing.csproj", "{95F0F0CF-CB8B-450D-9EFA-11FC2353E677}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +62,9 @@ Global
 		{1D53CB42-0424-4BEA-A1E7-A452BA688543}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D53CB42-0424-4BEA-A1E7-A452BA688543}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D53CB42-0424-4BEA-A1E7-A452BA688543}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F0F0CF-CB8B-450D-9EFA-11FC2353E677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F0F0CF-CB8B-450D-9EFA-11FC2353E677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F0F0CF-CB8B-450D-9EFA-11FC2353E677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F0F0CF-CB8B-450D-9EFA-11FC2353E677}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

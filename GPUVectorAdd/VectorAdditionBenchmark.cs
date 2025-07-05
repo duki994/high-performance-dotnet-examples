@@ -45,7 +45,12 @@ public class VectorAdditionBenchmark
             b[i] = Length - i;
         }
 
-        context = Context.Create(builder => builder.Cuda());
+        context = Context.Create(builder => builder.OpenCL());
+        Console.WriteLine("DEVICES:");
+        foreach (var contextDevice in context.Devices)
+        {
+            Console.WriteLine(contextDevice.Name);
+        }
         accelerator = context.CreateCLAccelerator(0);
 
 
